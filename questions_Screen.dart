@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:quiz_app/models/answer_button.dart';
+import 'package:quiz_app/questions/questons.dart';
 
 class QuestionScreen extends StatefulWidget {
   const QuestionScreen({super.key});
@@ -18,7 +19,7 @@ class _QuestionScreen extends State<QuestionScreen> {
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-        Text("The Question..."),
+        Text("The Question...",style: TextStyle(color: Colors.black),),
         SizedBox(height: 150,width: 20,),
         AnswerButton(answerText: "answerText", onPressed: (){}),
         SizedBox(height: 20,width: 20,),

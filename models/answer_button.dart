@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 class AnswerButton extends StatelessWidget {
@@ -10,6 +12,10 @@ class AnswerButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(onPressed: onPressed, child: Text(answerText));
+    return ElevatedButton(onPressed: onPressed,style: ElevatedButton.styleFrom(
+      padding: EdgeInsets.symmetric(vertical: 10,horizontal: 70),
+      backgroundColor: Colors.white,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20))
+    ), child: Text(answerText,style: TextStyle(color: Colors.purple),));
   }
 }
