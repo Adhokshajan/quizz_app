@@ -2,7 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:quiz_app/home_page.dart';
+import 'package:quiz_app/questions/questons.dart';
 import 'package:quiz_app/questions_Screen.dart';
+import 'package:quiz_app/result_page.dart';
 
 class Quiz extends StatefulWidget {
   const Quiz({super.key});
@@ -27,6 +29,11 @@ class _Quiz extends State<Quiz> {
 
   void chooseAnswer(String answer){
     selectedAnswers.add(answer);
+    if(selectedAnswers.length==questions.length){
+      setState(() {
+        activeScreen=ResultPage();
+      });
+    }
 
   }
   @override
