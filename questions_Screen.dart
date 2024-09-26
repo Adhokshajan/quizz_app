@@ -12,9 +12,22 @@ class QuestionScreen extends StatefulWidget {
 }
 
 class _QuestionScreen extends State<QuestionScreen> {
+  var questionindex = 0;
+  void changeQuestion(){
+    setState(() {
+      questionindex++;
+    });
+
+  }
+
+
+
+
+
+
   @override
   Widget build(BuildContext context) {
-    final currentQuestion=questions[0];
+    final currentQuestion=questions[questionindex];
     return Center(
       child: Container(
         margin: EdgeInsets.all(20),
@@ -23,11 +36,11 @@ class _QuestionScreen extends State<QuestionScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-          Text(currentQuestion.text,style: TextStyle(color: Colors.black),),
+          Text(currentQuestion.text,style: TextStyle(color: Colors.black),textAlign: TextAlign.center,),
           SizedBox(height: 150,width: 20,),
-          ...currentQuestion.answers.map((answers){
+          ...currentQuestion.getShuffeldList().map((answers){
             SizedBox(height: 20,width: 20,);
-            return AnswerButton(answerText: answers, onPressed: (){});
+            return AnswerButton(answerText: answers, onPressed:changeQuestion);
         
           }),
           
