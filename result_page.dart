@@ -6,7 +6,8 @@ import 'package:quiz_app/questions/questons.dart';
 
 class ResultPage extends StatelessWidget {
   List<String> selectedAnswers;
-  ResultPage({super.key,required this.selectedAnswers});
+   final void Function() onend;
+  ResultPage({super.key,required this.selectedAnswers,required this.onend});
   
   List<Map<String,Object>> getSummary(){
     final List<Map<String,Object>> summary=[];
@@ -27,19 +28,30 @@ class ResultPage extends StatelessWidget {
   }
   @override
   Widget build(BuildContext context) {
+    final summarydata=getSummary();
+
+    final totalnumq=questions.length;
+    final crctAns =summarydata.where((data){
+      return data["Correct Answer"]==data["Chosen Answer"];
+    }).length;
     return Center(
-      
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Text("you have got 5 off 6 correct ", textAlign: TextAlign.center,),
-          SizedBox(height: 30,),
-          Text("list of question and answers", textAlign: TextAlign.center,),
-          SizedBox(height: 30,),
-          QuestionsSummary(qusummary: getSummary()),
-          TextButton(onPressed: (){}, child: Text("Restart Quiz"))],),
+      child: SizedBox(
+        height: 300,
+        child:SingleChildScrollView(
+          child: Column(
+              children: [
+                Text("you have got $crctAns off $totalnumq  ", textAlign: TextAlign.center,),
+                SizedBox(height: 30,),
+                Text("list of question and answers", textAlign: TextAlign.center,),
+                SizedBox(height: 30,),
+                QuestionsSummary(qusummary: getSummary()),
+                TextButton(onPressed: onend, child: Text("Restart Quiz"))],),
+        )
+        
+          
+          
+        
+      ),
     );
   }
 }

@@ -10,21 +10,27 @@ class QuestionsSummary extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
+      
       child: Column(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
         ...qusummary.map((data){
           return Row(children: [
-            Text(((data['question No.'] as int).toString())),
-            Column(children: [
-              Text(data["Question"]as String),
-              SizedBox(height: 20,),
-              Text(data["Chosen Answer"]as String),
-              SizedBox(height: 20,),
-              Text(data["Correct Answer"]as String),
-      
-            ],)
+            
+            Text(((data['question No.'] as int).toString()),textAlign: TextAlign.right,),
+            Expanded(
+              child: Column(
+                
+                children: [
+                Text(data["Question"]as String,textAlign: TextAlign.center,),
+                SizedBox(height: 20,),
+                Text(data["Chosen Answer"]as String),
+                SizedBox(height: 20,),
+                Text(data["Correct Answer"]as String),
+                    
+              ],),
+            )
           ],);
       
         })

@@ -31,13 +31,22 @@ class _Quiz extends State<Quiz> {
     selectedAnswers.add(answer);
     if(selectedAnswers.length==questions.length){
       setState(() {
-        activeScreen=ResultPage(selectedAnswers: selectedAnswers,);
+        activeScreen=ResultPage(selectedAnswers: selectedAnswers,onend: onends,);
         selectedAnswers=[];
         
       });
     }
 
   }
+  void onends(){
+    setState(() {
+      selectedAnswers=[];
+      activeScreen = HomePage(switchScreen: switchScreen,);
+      
+    });
+  }
+
+  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

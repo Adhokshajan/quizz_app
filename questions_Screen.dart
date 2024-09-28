@@ -43,7 +43,7 @@ class _QuestionScreen extends State<QuestionScreen> {
           Text(currentQuestion.text,style: GoogleFonts.robotoSlab(color: Colors.black),textAlign: TextAlign.center,),
           SizedBox(height: 150,width: 20,),
           ...currentQuestion.getShuffeldList().map((answers){
-            SizedBox(height: 20,width: 20,);
+            SizedBox(height: 60,width: 20,);
             return AnswerButton(answerText: answers, onPressed:(){
               changeQuestion(answers);
             });
