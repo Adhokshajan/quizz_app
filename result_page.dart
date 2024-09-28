@@ -3,8 +3,17 @@
 import 'package:flutter/material.dart';
 
 class ResultPage extends StatelessWidget {
-  const ResultPage({super.key});
+  List<String> selectedAnswers;
+  ResultPage({super.key,required this.selectedAnswers});
+  
+  List<Map<String,Object>> getSummary(){
+    final List<Map<String,Object>> summary=[];
 
+
+
+
+    return summary;
+  }
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -16,6 +25,7 @@ class ResultPage extends StatelessWidget {
           Text("you have got 5 off 6 correct "),
           SizedBox(height: 30,),
           Text("list of question and answers"),
+          Container(child: Column(children: [selectedAnswers],),),
           SizedBox(height: 30,),
           TextButton(onPressed: (){}, child: Text("Restart Quiz"))],),
     );
