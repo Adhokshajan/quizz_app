@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 
@@ -13,7 +13,11 @@ class ResultPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text("hi")],),
+          Text("you have got 5 off 6 correct "),
+          SizedBox(height: 30,),
+          Text("list of question and answers"),
+          SizedBox(height: 30,),
+          TextButton(onPressed: (){}, child: Text("Restart Quiz"))],),
     );
   }
 }
